@@ -1,15 +1,17 @@
 import requests
 
-def get_osint_data(api_url):
-    response = requests.get(api_url)
-    if response.status_code == 200:
-        return response.json()
-    else:
-        print("Failed to retrieve data")
-        return None
+def get_vt_data(url):
+    api_key = '6a679804c92b7300b4ad12874ac392a1e18c82558ce11414fa0e47b1a3a37b82'
+    url = 'https://www.virustotal.com/vtapi/v2/url/report'
+    params = {
+        'apikey': api_key,
+        'resource': 'example.com'  # Replace with the URL you want to analyze
+    }
+    response = requests.get(url, params=params)
+    print(response.json())
 
 if __name__ == "__main__":
-    url = "https://api.example.com/osint"  # Replace with actual OSINT API
-    data = get_osint_data(url)
+    url = "https://www.virustotal.com/vtapi/v2/url/report"  # Replace with actual OSINT API
+    data = get_vt_data(url)
     if data:
         print(data)  # Process and save data as needed
