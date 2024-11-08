@@ -1,7 +1,9 @@
 import requests
+import os
+from dotenv import load_dotenv
 
 def get_vt_data(url):
-    api_key = '6a679804c92b7300b4ad12874ac392a1e18c82558ce11414fa0e47b1a3a37b82'
+    api_key = os.getenv('API_KEY')
     url = 'https://www.virustotal.com/vtapi/v2/url/report'
     params = {
         'apikey': api_key,
