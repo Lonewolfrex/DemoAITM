@@ -81,7 +81,7 @@ def index():
 
     return render_template('index.html')
 
-# Endpoint to test ChatGPT API connectivity
+# Endpoint to test ChatGPT API connectivity to be removed
 @app.route('/test-chatgpt')
 def test_chatgpt():
     try:
