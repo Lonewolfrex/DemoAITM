@@ -1,0 +1,660 @@
+{
+    "version": "2.2.0",
+    "summary": {
+        "title": "New Threat Model",
+        "owner": "Mano",
+        "description": "",
+        "id": 0
+    },
+    "detail": {
+        "contributors": [],
+        "diagrams": [
+            {
+                "id": 0,
+                "title": "New STRIDE diagram",
+                "diagramType": "STRIDE",
+                "placeholder": "New STRIDE diagram description",
+                "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+                "version": "2.2.0",
+                "cells": [
+                    {
+                        "position": {
+                            "x": 70,
+                            "y": 180
+                        },
+                        "size": {
+                            "width": 112.5,
+                            "height": 60
+                        },
+                        "attrs": {
+                            "text": {
+                                "text": "End User"
+                            },
+                            "body": {
+                                "stroke": "#333333",
+                                "strokeWidth": 1.5,
+                                "strokeDasharray": null
+                            }
+                        },
+                        "visible": true,
+                        "shape": "actor",
+                        "id": "4e023bfe-90e6-4fd6-8c53-4786ee3ee123",
+                        "zIndex": 1,
+                        "data": {
+                            "type": "tm.Actor",
+                            "name": "End User",
+                            "description": "A Customer ",
+                            "outOfScope": false,
+                            "reasonOutOfScope": "",
+                            "hasOpenThreats": false,
+                            "providesAuthentication": false,
+                            "threats": [
+                                {
+                                    "title": "Unauthenticated Access Threat",
+                                    "description": "An attacker may assume the identity of the end user and gain unauthorized access to sensitive information and/or perform malicious activities.",
+                                    "type": "Spoofing",
+                                    "status": "Possible",
+                                    "severity": "High",
+                                    "mitigation": "Implement strong authentication mechanisms such as multi-factor authentication (MFA), biometric verification or cryptographic methods to validate the identity of users.",
+                                    "modelType": "STRIDE",
+                                    "id": "80ab0b4f-d21c-4a05-974e-30b71c7c5334"
+                                },
+                                {
+                                    "title": "User Data Tampering Threat",
+                                    "description": "An attacker could potentially alter the personal or operational data of the user.",
+                                    "type": "Tampering",
+                                    "status": "Possible",
+                                    "severity": "High",
+                                    "mitigation": "Use checksums, hashing algorithms or digital signatures to ensure data integrity. Implement proper user roles management and restrict edit permissions according to users' roles.",
+                                    "modelType": "STRIDE",
+                                    "id": "82358d49-f02a-4777-8776-726b903b04e8"
+                                },
+                                {
+                                    "title": "User Information Leakage",
+                                    "description": "Potential breach that exposes end user's personal or confidential data.",
+                                    "type": "Information Disclosure",
+                                    "status": "Possible",
+                                    "severity": "High",
+                                    "mitigation": "Adopt strong data encryption methods for data at rest and in transit. Follow the principle of least privilege (only allow access to necessary information).",
+                                    "modelType": "STRIDE",
+                                    "id": "82d80e29-d444-4cfd-86b0-817de8d61114"
+                                },
+                                {
+                                    "title": "Denial of Service on User Account",
+                                    "description": "An attacker may try to lock the user out of their account or render the user's services unusable.",
+                                    "type": "Denial of Service",
+                                    "status": "Possible",
+                                    "severity": "Medium",
+                                    "mitigation": "Implement account lockout policies to prevent password brute force attacks. Use rate limiting and CAPTCHA mechanisms.",
+                                    "modelType": "STRIDE",
+                                    "id": "efea8eca-574e-414b-8ea4-e538c774f7b6"
+                                },
+                                {
+                                    "title": "Elevation of User Privileges",
+                                    "description": "An attacker may exploit vulnerabilities to gain privileges reserved for other users.",
+                                    "type": "Elevation of Privilege",
+                                    "status": "Possible",
+                                    "severity": "High",
+                                    "mitigation": "Regularly update and patch the system to avoid known vulnerabilities. Enforce strong user authorization policies.",
+                                    "modelType": "STRIDE",
+                                    "id": "03e0afdc-a595-4f0b-a3d8-ba642bc20a6a"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "position": {
+                            "x": 450,
+                            "y": 145
+                        },
+                        "size": {
+                            "width": 170,
+                            "height": 130
+                        },
+                        "attrs": {
+                            "text": {
+                                "text": "Web Server"
+                            },
+                            "body": {
+                                "stroke": "#333333",
+                                "strokeWidth": 1.5,
+                                "strokeDasharray": null
+                            }
+                        },
+                        "visible": true,
+                        "shape": "process",
+                        "id": "28fabebc-288e-4dd0-a363-9570b246ef23",
+                        "zIndex": 2,
+                        "data": {
+                            "type": "tm.Process",
+                            "name": "Web Server",
+                            "description": "",
+                            "outOfScope": false,
+                            "reasonOutOfScope": "",
+                            "hasOpenThreats": false,
+                            "handlesCardPayment": false,
+                            "handlesGoodsOrServices": false,
+                            "isWebApplication": false,
+                            "privilegeLevel": "",
+                            "threats": [
+                                {
+                                    "title": "Spoofing Web Server Identity",
+                                    "description": "Attackers may attempt to spoof the web server's identity to trick users into sending them sensitive data.",
+                                    "type": "Spoofing",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Implement strong authentication and certificate-based mechanisms. Also ensure HTTPS is used across all pages.",
+                                    "modelType": "STRIDE",
+                                    "id": "4b874ccc-c2ed-4380-bf8b-1335ab6cc6c4"
+                                },
+                                {
+                                    "title": "Tampering Web Server Data",
+                                    "description": "Attackers can modify the content of the web server leading to information corruption or misinformation.",
+                                    "type": "Tampering",
+                                    "status": "Open",
+                                    "severity": "Medium",
+                                    "mitigation": "Use cryptographic techniques to ensure data integrity. Regularly backup your data and implement a strong IAM (Identity & Access Management) policy.",
+                                    "modelType": "STRIDE",
+                                    "id": "e620f13e-78c3-4eb5-9081-9941bdea6e9c"
+                                },
+                                {
+                                    "title": "Unauthorized Access to Information on Web Server",
+                                    "description": "Attackers may attempt to gain unauthorized access to sensitive information stored on the web server.",
+                                    "type": "Information Disclosure",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Make sure to encrypt sensitive data and use secure protocols. Employ principle of least privilege for access control.",
+                                    "modelType": "STRIDE",
+                                    "id": "71a7b43f-4c3b-4de0-9262-75a045000599"
+                                },
+                                {
+                                    "title": "Denial of Service on Web Server",
+                                    "description": "Attackers may try to overwhelm the web server with traffic, causing it to become unavailable to end users.",
+                                    "type": "Denial of Service",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Implement rate limiting, load balancing and autop-scaling. Also consider using a DDoS protection service.",
+                                    "modelType": "STRIDE",
+                                    "id": "fabfa5f0-a3ba-4376-936f-f841e8a93942"
+                                },
+                                {
+                                    "title": "Elevation of Privileges on Web Server",
+                                    "description": "Attackers may exploit vulnerabilities in the web server to gain higher-level privileges.",
+                                    "type": "Elevation of Privilege",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Regular security updates and patches for your web server. Implement a strong IAM (Identity & Access Management) policy.",
+                                    "modelType": "STRIDE",
+                                    "id": "498a3eab-b10e-4aab-a677-fe087260d1ce"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "shape": "flow",
+                        "attrs": {
+                            "line": {
+                                "stroke": "#333333",
+                                "targetMarker": {
+                                    "name": "block"
+                                },
+                                "sourceMarker": {
+                                    "name": ""
+                                },
+                                "strokeDasharray": null
+                            }
+                        },
+                        "width": 200,
+                        "height": 100,
+                        "zIndex": 10,
+                        "connector": "smooth",
+                        "data": {
+                            "type": "tm.Flow",
+                            "name": "Data Flow",
+                            "description": "",
+                            "outOfScope": false,
+                            "reasonOutOfScope": "",
+                            "hasOpenThreats": false,
+                            "isBidirectional": false,
+                            "isEncrypted": false,
+                            "isPublicNetwork": false,
+                            "protocol": "",
+                            "threats": [
+                                {
+                                    "title": "Data Manipulation",
+                                    "description": "An attacker may manipulate the data while it is in transit.",
+                                    "type": "Tampering",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Use encryption methods to secure the data during transmission and ensure data integrity checking methods are implemented.",
+                                    "modelType": "STRIDE",
+                                    "id": "943150af-d6ed-4d2d-b9ab-59075dd888cf"
+                                },
+                                {
+                                    "title": "Unauthorized Data Access",
+                                    "description": "An attacker might gain unauthorized data access if data is not secured properly.",
+                                    "type": "Information Disclosure",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Implement strong access control mechanisms and regularly monitor and audit data access.",
+                                    "modelType": "STRIDE",
+                                    "id": "014f2edc-1177-4558-a8f4-64783e5ef301"
+                                },
+                                {
+                                    "title": "Denial of Service Attack",
+                                    "description": "The data flow process can be overloaded to disrupt the system's functions leading to a DoS attack.",
+                                    "type": "Denial of Service",
+                                    "status": "Open",
+                                    "severity": "Medium",
+                                    "mitigation": "Includes rate limiting measures and implementing well-defined resource accessible policies.",
+                                    "modelType": "STRIDE",
+                                    "id": "8bc67888-f3de-4e7d-8f3f-1b8491f322d0"
+                                },
+                                {
+                                    "title": "Spoofing Data Sender",
+                                    "description": "An attacker might impersonate a data sender to send malicious data or gain unauthorized access.",
+                                    "type": "Spoofing",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Ensure the usage of secure authentication mechanisms and validate the data sender before processing the data.",
+                                    "modelType": "STRIDE",
+                                    "id": "754de55d-d410-45dd-90d7-281761cc7afe"
+                                },
+                                {
+                                    "title": "Elevation Of Privileges",
+                                    "description": "Once inside the system, an attacker might escalate privileges to bypass access controls.",
+                                    "type": "Elevation of Privilege",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Ensure adherence to the principle of least privilege, closely monitor user activities, and implement measures for immediate detection and prevention of privilege escalation.",
+                                    "modelType": "STRIDE",
+                                    "id": "db4bd2a7-04b0-4375-8a43-546d67f51be1"
+                                }
+                            ]
+                        },
+                        "id": "f78ddcbc-3cf9-478a-a385-797c8e6680d3",
+                        "source": {
+                            "cell": "4e023bfe-90e6-4fd6-8c53-4786ee3ee123"
+                        },
+                        "target": {
+                            "cell": "36272aa1-3e91-45f4-8c63-904812cc696e"
+                        }
+                    },
+                    {
+                        "shape": "flow",
+                        "attrs": {
+                            "line": {
+                                "stroke": "#333333",
+                                "targetMarker": {
+                                    "name": "block"
+                                },
+                                "sourceMarker": {
+                                    "name": ""
+                                },
+                                "strokeDasharray": null
+                            }
+                        },
+                        "width": 200,
+                        "height": 100,
+                        "zIndex": 10,
+                        "connector": "smooth",
+                        "data": {
+                            "type": "tm.Flow",
+                            "name": "Data Flow",
+                            "description": "",
+                            "outOfScope": false,
+                            "reasonOutOfScope": "",
+                            "hasOpenThreats": false,
+                            "isBidirectional": false,
+                            "isEncrypted": false,
+                            "isPublicNetwork": false,
+                            "protocol": "",
+                            "threats": [
+                                {
+                                    "title": "Unauthorized Data Access",
+                                    "description": "Potential unauthorized access to sensitive data while in transit.",
+                                    "type": "Spoofing",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Implement strong validation mechanisms and secure data transit protocols (HTTPS, SSL/TLS).",
+                                    "modelType": "STRIDE",
+                                    "id": "d1f27eb5-9271-4b49-9f04-018f8c1af966"
+                                },
+                                {
+                                    "title": "Data Tampering",
+                                    "description": "Potential tampering or alteration of data while in transit.",
+                                    "type": "Tampering",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Ensure end-to-end encryption and integrity checks to prevent alteration.",
+                                    "modelType": "STRIDE",
+                                    "id": "87c1229a-069a-489e-9f75-9f7122c990f1"
+                                },
+                                {
+                                    "title": "Data Repudiation",
+                                    "description": "Potential for an entity to deny an action took place due to lack of audit trail.",
+                                    "type": "Repudiation",
+                                    "status": "Open",
+                                    "severity": "Medium",
+                                    "mitigation": "Implement robust logging and audit trails.",
+                                    "modelType": "STRIDE",
+                                    "id": "2c7e0d04-f3b9-4c94-a117-7c0c60eff9f4"
+                                },
+                                {
+                                    "title": "Information Disclosure",
+                                    "description": "Potential leak of sensitive data during transit due to insecure transmission.",
+                                    "type": "Information Disclosure",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Enforce secure data transit through up-to-date encryption protocols.",
+                                    "modelType": "STRIDE",
+                                    "id": "0a9d01de-8dce-4b83-883b-32189f2ea170"
+                                },
+                                {
+                                    "title": "Denial of Service",
+                                    "description": "Potential for a system to be brought down by excessive data requests.",
+                                    "type": "Denial of Service",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Implement measures for load balancing and handling excessive requests.",
+                                    "modelType": "STRIDE",
+                                    "id": "e6c9d609-36ef-41c2-9aee-7830f57385a4"
+                                },
+                                {
+                                    "title": "Privilege Escalation",
+                                    "description": "Potential for an attacker to gain unauthorized higher level access.",
+                                    "type": "Elevation of Privilege",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Strictly enforce role-based access control and strong authentication methods.",
+                                    "modelType": "STRIDE",
+                                    "id": "12eb98bc-bd77-48f1-ab50-e50e61a85012"
+                                }
+                            ]
+                        },
+                        "id": "3598719b-9954-43b7-b66d-42d4058492ae",
+                        "source": {
+                            "cell": "36272aa1-3e91-45f4-8c63-904812cc696e"
+                        },
+                        "target": {
+                            "cell": "28fabebc-288e-4dd0-a363-9570b246ef23"
+                        }
+                    },
+                    {
+                        "shape": "flow",
+                        "attrs": {
+                            "line": {
+                                "stroke": "#333333",
+                                "targetMarker": {
+                                    "name": "block"
+                                },
+                                "sourceMarker": {
+                                    "name": ""
+                                },
+                                "strokeDasharray": null
+                            }
+                        },
+                        "width": 200,
+                        "height": 100,
+                        "zIndex": 10,
+                        "connector": "smooth",
+                        "data": {
+                            "type": "tm.Flow",
+                            "name": "Data Flow",
+                            "description": "",
+                            "outOfScope": false,
+                            "reasonOutOfScope": "",
+                            "hasOpenThreats": false,
+                            "isBidirectional": false,
+                            "isEncrypted": false,
+                            "isPublicNetwork": false,
+                            "protocol": "",
+                            "threats": [
+                                {
+                                    "title": "Credential spoofing in Data Flow",
+                                    "description": "An unauthorized entity may impersonate a legitimate user to gain illegitimate access to the Data Flow.",
+                                    "type": "Spoofing",
+                                    "status": "Potential",
+                                    "severity": "High",
+                                    "mitigation": "Use strong authentication mechanisms and encryption to protect credentials.",
+                                    "modelType": "STRIDE",
+                                    "id": "6a01f605-c1e2-4b79-a878-c9cb365a0e11"
+                                },
+                                {
+                                    "title": "Data tampering in Data Flow",
+                                    "description": "An attacker may modify the data in transit between sources in the Data Flow.",
+                                    "type": "Tampering",
+                                    "status": "Potential",
+                                    "severity": "High",
+                                    "mitigation": "Implement data integrity checks and use secure, encrypted connections for transferring data.",
+                                    "modelType": "STRIDE",
+                                    "id": "718d9bdd-2401-4091-97f6-35e9f7f8bdcd"
+                                },
+                                {
+                                    "title": "Unauthorized information disclosure in Data Flow",
+                                    "description": "Sensitive data may be read by unauthorized entities during data flow.",
+                                    "type": "Information Disclosure",
+                                    "status": "Potential",
+                                    "severity": "High",
+                                    "mitigation": "Encrypt sensitive data during transit and at rest. Control and monitor access to data.",
+                                    "modelType": "STRIDE",
+                                    "id": "34e8ea52-2f89-475a-8bc5-6caaa0ca8810"
+                                },
+                                {
+                                    "title": "Denial of Service in Data Flow",
+                                    "description": "An attacker may attempt to overwhelm the Data Flow system with excessive requests, preventing legitimate users from using the service.",
+                                    "type": "Denial of Service",
+                                    "status": "Potential",
+                                    "severity": "Medium",
+                                    "mitigation": "Implement rate limiting and auto-scaling capabilities. Regularly monitor systems for abnormal behavior.",
+                                    "modelType": "STRIDE",
+                                    "id": "45e73082-7fda-4153-bb62-ba1f8dc81623"
+                                },
+                                {
+                                    "title": "Elevation of privilege in Data Flow",
+                                    "description": "An unauthorized user could gain elevated privileges within the Data Flow, allowing them to execute unauthorized actions.",
+                                    "type": "Elevation of Privilege",
+                                    "status": "Potential",
+                                    "severity": "High",
+                                    "mitigation": "Implement principle of least privilege. Monitor and control user actions and access.",
+                                    "modelType": "STRIDE",
+                                    "id": "abe1e280-1ec9-414f-881f-d3f024c4527d"
+                                }
+                            ]
+                        },
+                        "id": "65cb3bc4-8aa0-420f-add7-047994cd04fb",
+                        "source": {
+                            "cell": "28fabebc-288e-4dd0-a363-9570b246ef23"
+                        },
+                        "target": {
+                            "cell": "b59d2ecb-9aec-4c29-b3e5-53c77a1aa019"
+                        }
+                    },
+                    {
+                        "position": {
+                            "x": 790,
+                            "y": 165
+                        },
+                        "size": {
+                            "width": 120,
+                            "height": 90
+                        },
+                        "attrs": {
+                            "text": {
+                                "text": "MySQL DB"
+                            },
+                            "topLine": {
+                                "strokeWidth": 1.5,
+                                "strokeDasharray": null
+                            },
+                            "bottomLine": {
+                                "strokeWidth": 1.5,
+                                "strokeDasharray": null
+                            }
+                        },
+                        "visible": true,
+                        "shape": "store",
+                        "id": "b59d2ecb-9aec-4c29-b3e5-53c77a1aa019",
+                        "zIndex": 11,
+                        "data": {
+                            "type": "tm.Store",
+                            "name": "MySQL DB",
+                            "description": "",
+                            "outOfScope": false,
+                            "reasonOutOfScope": "",
+                            "hasOpenThreats": false,
+                            "isALog": false,
+                            "isEncrypted": false,
+                            "isSigned": false,
+                            "storesCredentials": false,
+                            "storesInventory": false,
+                            "threats": [
+                                {
+                                    "title": "Unauthorized Database Access (Spoofing)",
+                                    "description": "Potential unauthorized access to the MySQL DB by spoofing legitimate credentials.",
+                                    "type": "Spoofing",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Implement strong authentication and multi-factor authentication to prevent unauthorized access.",
+                                    "modelType": "STRIDE",
+                                    "id": "8f50d6aa-a274-4459-86fc-df6a90e6f49a"
+                                },
+                                {
+                                    "title": "Data Tampering",
+                                    "description": "Potential unauthorized data manipulation or tampering in the MySQL database.",
+                                    "type": "Tampering",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Implement stringent data access policies and procedures. Audit logs for detection of data manipulation activities.",
+                                    "modelType": "STRIDE",
+                                    "id": "6d494958-833c-4ce5-87bb-53253cc9c9b7"
+                                },
+                                {
+                                    "title": "Information Disclosure through SQL Injection",
+                                    "description": "Potential unauthorized access to sensitive data through SQL Injection attacks.",
+                                    "type": "Repudiation",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Parametrize SQL queries and implement proper data sanitation and validation to prevent SQL injection attacks.",
+                                    "modelType": "STRIDE",
+                                    "id": "3bc32477-3ada-4e1c-9e2b-cb41050a2845"
+                                },
+                                {
+                                    "title": "Denial of Service (DoS) Attack",
+                                    "description": "Potential interruption of MySQL database service with a DoS attack",
+                                    "type": "Denial of Service",
+                                    "status": "Open",
+                                    "severity": "Medium",
+                                    "mitigation": "Implement rate-limiter, IP whitelisting and IDS/IPS to prevent DoS attacks.",
+                                    "modelType": "STRIDE",
+                                    "id": "dc43802d-ba63-4be7-a8c2-403542e51939"
+                                },
+                                {
+                                    "title": "Elevation of Privileges",
+                                    "description": "Potential unauthorized access to privileged features in the application that interacts with MySQL database",
+                                    "type": "Elevation of Privilege",
+                                    "status": "Open",
+                                    "severity": "High",
+                                    "mitigation": "Implement least privilege principle and role-based access control to limit access to privileged features.",
+                                    "modelType": "STRIDE",
+                                    "id": "0b807737-4e33-468a-8876-06c63d571ed2"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "position": {
+                            "x": 260,
+                            "y": 180
+                        },
+                        "size": {
+                            "width": 60,
+                            "height": 60
+                        },
+                        "attrs": {
+                            "text": {
+                                "text": "Firewall"
+                            },
+                            "body": {
+                                "stroke": "#333333",
+                                "strokeWidth": 1.5,
+                                "strokeDasharray": null
+                            }
+                        },
+                        "visible": true,
+                        "shape": "process",
+                        "id": "36272aa1-3e91-45f4-8c63-904812cc696e",
+                        "zIndex": 12,
+                        "data": {
+                            "type": "tm.Process",
+                            "name": "Firewall",
+                            "description": "",
+                            "outOfScope": false,
+                            "reasonOutOfScope": "",
+                            "hasOpenThreats": false,
+                            "handlesCardPayment": false,
+                            "handlesGoodsOrServices": false,
+                            "isWebApplication": false,
+                            "privilegeLevel": "",
+                            "threats": [
+                                {
+                                    "title": "Unauthorized Access via Spoofing",
+                                    "description": "A threat actor may impersonate a legitimate user or device to bypass the firewall.",
+                                    "type": "Spoofing",
+                                    "status": "Active",
+                                    "severity": "High",
+                                    "mitigation": "Implement robust authentication and multi-factor authentication to verify users' identities.",
+                                    "modelType": "STRIDE",
+                                    "id": "50d56295-5cbd-4eac-8a64-2f8243e48e80"
+                                },
+                                {
+                                    "title": "Alteration of Firewall Configuration",
+                                    "description": "An attacker may tamper with firewall configurations to allow malicious traffic or block legitimate requests.",
+                                    "type": "Tampering",
+                                    "status": "Active",
+                                    "severity": "High",
+                                    "mitigation": "Regularly check and update firewall settings and limit access to these settings to authorized personnel only.",
+                                    "modelType": "STRIDE",
+                                    "id": "5049026c-47cf-4e66-a1e6-27b517c4deb3"
+                                },
+                                {
+                                    "title": "Denial-of-Service via Firewall",
+                                    "description": "An attacker could overwhelm the firewall with illegitimate requests causing it to deny access to legitimate requests.",
+                                    "type": "Denial of Service",
+                                    "status": "Active",
+                                    "severity": "Medium",
+                                    "mitigation": "Implement network traffic monitoring, rate limiting, and capacity planning to prevent overload.",
+                                    "modelType": "STRIDE",
+                                    "id": "8df0b8a0-6bac-4616-b38a-a909abdb05fb"
+                                },
+                                {
+                                    "title": "Information Disclosure through Firewall Logs",
+                                    "description": "An attacker may gain unauthorized access to sensitive information logged by the firewall.",
+                                    "type": "Information Disclosure",
+                                    "status": "Active",
+                                    "severity": "Medium",
+                                    "mitigation": "Secure and encrypt log files and limit access to logs to authorized personnel only.",
+                                    "modelType": "STRIDE",
+                                    "id": "945919f2-72f9-4246-a553-2e66dc36f042"
+                                },
+                                {
+                                    "title": "Elevated Privileges via Firewall",
+                                    "description": "An attacker may exploit vulnerabilities in the firewall to obtain elevated privileges in the system.",
+                                    "type": "Elevation of Privilege",
+                                    "status": "Active",
+                                    "severity": "High",
+                                    "mitigation": "Regularly update and patch firewall software to protect against known vulnerabilities.",
+                                    "modelType": "STRIDE",
+                                    "id": "eb836256-a7cd-4447-8195-ae54d22f1f53"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ],
+        "diagramTop": 1,
+        "reviewer": "Khushboo",
+        "threatTop": 0
+    }
+}

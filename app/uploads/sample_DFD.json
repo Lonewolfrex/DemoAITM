@@ -1,0 +1,78 @@
+{
+    "summary": {
+      "title": "Demo Threat Model",
+      "owner": "Mike Goodwin1",
+      "description": "A sample model of a web application, with a queue-decoupled background process.",
+      "id": 0
+    },
+    "detail": {
+      "contributors": [
+        {
+          "name": "Tom Brown"
+        },
+        {
+          "name": "Albert Moneypenny"
+        }
+      ],
+      "diagrams": [
+        {
+          "cells": [
+            {
+              "position": {
+                "x": 565,
+                "y": 414
+              },
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "attrs": {
+                "text": {
+                  "text": "Worker Config"
+                },
+                "topLine": {
+                  "stroke": "red",
+                  "strokeWidth": 3,
+                  "strokeDasharray": null
+                },
+                "bottomLine": {
+                  "stroke": "red",
+                  "strokeWidth": 3,
+                  "strokeDasharray": null
+                }
+              },
+              "visible": true,
+              "shape": "store",
+              "zIndex": 1,
+              "id": "a25bbb4e-093f-4238-a620-31efdee452dc",
+              "data": {
+                "name": "Worker Config",
+                "description": "",
+                "type": "tm.Store",
+                "isTrustBoundary": false,
+                "outOfScope": false,
+                "reasonOutOfScope": "",
+                "threats": [                  
+                ],
+                "hasOpenThreats": true,
+                "isALog": false,
+                "storesCredentials": true,
+                "isEncrypted": false,
+                "isSigned": false
+              }
+            }            
+          ],
+          "version": "2.0",
+          "title": "Main Request Data Flow",
+          "descrition": "Main Request Data Flow Description",
+          "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+          "diagramType": "STRIDE",
+          "id": 0
+        }
+      ],
+      "diagramTop": 0,
+      "reviewer": "Jane Smith",
+      "threatTop": 0
+    },
+    "version": "2.2.0"
+  }
